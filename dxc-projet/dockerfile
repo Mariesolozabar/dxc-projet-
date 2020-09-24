@@ -1,0 +1,13 @@
+ARG CP_VERSION
+
+FROM confluentinc/cp-server-connect-base:$CP_VERSION
+
+ARG CONNECTOR_VERSION=5.4.1
+
+ENV CONNECT_PLUGIN_PATH: "/usr/share/java,/connect-plugins,/usr/share/confluent-hub-components"
+
+# Install Confluent Replicator connector
+RUN confluent-hub install --no-prompt confluentinc/kafka-connect-replicator:${CONNECTOR_VERSION}
+
+# Install Elasticsearch connector
+RUN confluent-hub install --no-prompt confluentinc/kafka-connect-elasticsearch:latest
