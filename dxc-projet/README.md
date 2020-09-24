@@ -20,3 +20,5 @@ Pour démarrer le projet :
 docker-compose up 
 
 attendre 10 à 20 min.
+
+attention le projet n'est pas terminé
